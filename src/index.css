@@ -19,6 +19,21 @@ body{
   text-align: center;
 }
 
+.iconku {
+  margin-right: 10px;
+  color:black
+}
+
+.logo-nyan{
+    width: 120px;
+    height: 31px;
+    background-image: url('./images/logo.png');
+    margin: 16px 24px 16px 0;
+    float: left;
+    background-position: center center;
+    background-size: cover;
+}
+
 
 .input-fruit {
 border: none !important;
