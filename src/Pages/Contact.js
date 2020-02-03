@@ -1,7 +1,5 @@
 import React from 'react';
 import { Form, Input, Button, Row,Col } from 'antd';
-import Footerku from './Bottom';
-import Top from './Top';
 class Contact extends React.Component {
 
     
@@ -10,7 +8,6 @@ class Contact extends React.Component {
 
     return (
       <div>
-        <Top />
         <Row>
             <div className='bg-fruit'>
                 <h2 className='bg-title'>Contacts</h2>
@@ -43,7 +40,6 @@ class Contact extends React.Component {
                 </Form>
             </Col>
         </Row>
-        <Footerku />
       </div>
     );
   }
