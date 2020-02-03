@@ -1,14 +1,20 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Carousel,Button,Row,Col,Card,Tabs } from 'antd';
 import FarmOne from '../images/our-farm-1.jpg';
 import farmImageOne from '../images/farm-1.jpg';
 import farmImageTwo from '../images/farm-2.jpg';
 import farmImageThree from '../images/farm-3.jpg';
 import farmImageFour from '../images/farm-4.jpg';
+import { connect } from 'react-redux';
+import { fetchImages } from '../actions/home.action';
 
-export default function Home() {
+function Home(props) {
     const { TabPane } = Tabs;
-
+    useEffect(() => {
+        props.getImages();
+        
+      },[]);
+      //console.log(props.myImages)
     return (
         
         <div>
@@ -123,8 +129,42 @@ export default function Home() {
             <div className='partNyan-3'>
                 <h1 style={{fontWeight:600,fontSize:"3em",textAlign:"center"}}>FEATURED OFFERS</h1>
                 <p style={{textAlign:"center"}}>Take a look at organic fruits that we offer on a regular basis.</p>
+                <Row>
+                    {props.myImages.map(image => {
+                        return(
+                            <Col xs={24} md={{span:8}} key={image.id} className='overlayku'>
+                                <img className='imageku' style={{height:'300px',width:"100%"}} alt='image' src={image.urls.full} />
+                                <div className='middleku'>
+                                    <i style={{color:"red"}} className='fa fa-eye fa-3x'></i>
+                                </div>
+                            </Col>
+                        )
+                    })}
+                    
+                </Row>
+            </div>{/* End PartNyan 3  */}
+            <div className='partNyan-5'>
+                <Row>
+                    <Col></Col>
+                    <Col></Col>
+                    <Col></Col>
+                </Row>
             </div>
             </div>
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        myImages: state.home.images
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getImages:()=> dispatch(fetchImages())
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Home);
