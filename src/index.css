@@ -1,6 +1,33 @@
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+.bg-fruit{
+  background-image: url('images/bg-gallery.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 60px 0px 60px 0px;
+  margin-bottom: 4em;
+}
+.bg-title{
+  text-shadow: 6px 5px 10px rgba(0,0,0,0.3);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 4em;
+  color: white;
+  text-align: center;
+}
+
+
+.input-fruit {
+border: none !important;
+border-bottom: 1px solid grey !important;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Poppins', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

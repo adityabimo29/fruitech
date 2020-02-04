@@ -1,13 +1,18 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Row, Col } from 'antd';
+import { Row, Col, Card } from 'antd';
 
 export default function Gallery() {
     return (
         <div>
             <Row>
+                <div className='bg-fruit'>
+                    <h2 className='bg-title'>GRID GALLERY</h2>
+                </div>
+            </Row>
+            <Row>
                 <Col span={12}>
-                    <h1>GRID GALLERY</h1>
+                    
                 </Col>
             </Row>
         </div>
