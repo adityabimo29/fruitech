@@ -19,10 +19,91 @@ body{
   text-align: center;
 }
 
+.iconku {
+  margin-right: 10px;
+  color:black
+}
+
+.logo-nyan{
+    width: 120px;
+    height: 31px;
+    background-image: url('./images/logo.png');
+    margin: 16px 24px 16px 0;
+    float: left;
+    background-position: center center;
+    background-size: cover;
+}
+
+/* .ant-carousel .slick-slide {
+  text-align: left;
+  height: 500px;
+  line-height: 160px;
+  background-image:URL('./images/slider-1.jpg');
+  overflow: hidden;
+} */
+
+.slide-1{
+  text-align: center;
+  height: 500px;
+  background-image:URL('./images/slider-1.jpg');
+  overflow: hidden;
+}
+
+.slide-2{
+  text-align: center;
+  height: 500px;
+  background-image:URL('./images/slider-2.jpg');
+  overflow: hidden;
+}
+
+.partNyan-1{
+  background-image: url('images/bg-image-1.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 60px 0px 60px 0px;
+  margin-bottom: 4em;
+}
+
+.partNyan-3{
+  background-color: #F5F5F5;
+  padding: 3em;
+}
+
+.partNyan-5{
+  background-image: url('images/bg-gallery.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  padding: 60px 0px 60px 0px;
+  margin-bottom: 4em;
+}
 
 .input-fruit {
 border: none !important;
 border-bottom: 1px solid grey !important;
+}
+
+.middleku{
+  
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  
+}
+
+
+.overlayku:hover .imageku {
+  opacity: 0.3;
+}
+
+.overlayku:hover .middleku {
+  opacity: 1;
 }
 
 body {
@@ -37,4 +118,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.ant-tabs-tab-active {
+  color: red;
+  font-weight: bold;
 }
