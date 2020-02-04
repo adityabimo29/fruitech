@@ -133,3 +133,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.ant-tabs-tab-active {
+  color: red;
+  font-weight: bold;
+}
