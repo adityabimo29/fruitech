@@ -42,7 +42,7 @@ export default class Top extends React.Component {
                         <Menu.Item key="1"><Link to='/'>Home</Link></Menu.Item>
                         <Menu.Item key="2">About</Menu.Item>
                         <Menu.Item key="3"><Link to='/team'>Team</Link></Menu.Item>
-                        <Menu.Item key="4">Gallery</Menu.Item>
+                        <Menu.Item key="4"><Link to='/gallery'>Gallery</Link></Menu.Item>
                         <Menu.Item key="5"><Link to='/blog'>Blog</Link></Menu.Item>
                         <Menu.Item key="6"><Link to='/contacts'>Contacts</Link></Menu.Item>
                     </Menu>

@@ -7,6 +7,8 @@ import DetailPost from './Pages/DetailPost';
 import Contact from './Pages/Contact';
 import Home from './Pages/Home';
 import Team from './Pages/OurTeam';
+import Gallery from './Pages/Gallery';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,6 +28,9 @@ function App() {
           </Route>
           <Route  path='/contacts'>
             <Contact />
+          </Route>
+          <Route  exact path='/gallery'>
+            <Gallery />
           </Route>
           <Route  exact path='/blog'>
             <Posts />

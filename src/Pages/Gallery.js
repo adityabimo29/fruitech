@@ -21,7 +21,7 @@ function Gallery(props) {
     </div>
       <div className='gal-tabs'>
         <Row>
-        <Col xs={24} md={{span:8}}>
+        <Col xs={24} md={{span:8,offset:8}}>
             <Tabs defaultActiveKey="organics">
               <TabPane tab="ORGANICS" key="organics">
               {props.myImages.map(image => {
@@ -50,6 +50,7 @@ function Gallery(props) {
           </Row>
       </div>
     </div>
+    
   )
 }
 
