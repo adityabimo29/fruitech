@@ -120,8 +120,38 @@ code {
     monospace;
 }
 
+.drawer-1 {
+  background-image:URL('./images/post-1.jpg');
+  overflow: hidden;
+  text-align: center;
+  height: 160px;
+}
 
-.ant-tabs-tab-active {
-  color: red;
-  font-weight: bold;
+.drawer-2 {
+  background-image:URL('./images/post-2.jpg');
+  overflow: hidden;
+  text-align: center;
+  height: 160px;
+}
+
+.drawer-3 {
+  background-image:URL('./images/post-3.jpg');
+  overflow: hidden;
+  text-align: center;
+  height: 160px;
+}
+
+.drawMenu {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5em;
+  letter-spacing: 0.7px;
+}
+
+.iconDraw {
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
 }
