@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import { Carousel,Button,Row,Col,Card,Tabs } from 'antd';
-//import {withRouter} from 'react-router';
+import {withRouter} from 'react-router';
+import {Link} from 'react-router-dom';
 import FarmOne from '../images/our-farm-1.jpg';
 import farmImageOne from '../images/farm-1.jpg';
 import farmImageTwo from '../images/farm-2.jpg';
@@ -12,6 +13,11 @@ import { fetchImages, addSubscribe, fetchSubs, fetchPosts } from '../actions/hom
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import Pics1 from "../images/clients-1-120x114.png";
+import Pics2 from "../images/clients-2-105x118.png";
+import Pics3 from "../images/clients-3-111x98.png";
+import Pics4 from "../images/clients-4-122x92.png";
+import Pics5 from "../images/clients-5-112x112.png";
 
 function Home(props) {
     const { TabPane } = Tabs;
@@ -39,7 +45,7 @@ function Home(props) {
         dispatch(fetchPosts());
         dispatch2(fetchImages());
         
-      },[dispatch]);
+      },[dispatch,dispatch2]);
 
       //console.log(props.myImages)
 
@@ -48,7 +54,33 @@ function Home(props) {
         infinite: true,
         speed: 500,
         slidesToShow: 3,
-        slidesToScroll: 3
+        slidesToScroll: 3,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
       };
 
       const { Meta } = Card;
@@ -87,9 +119,10 @@ function Home(props) {
             </Carousel>
             <div className='partNyan-1' style={{marginTop:"-6px"}}>
                 <Row>
-                    <Col xs={24} md={{span:12,offset:12}}>
+                    <h1 style={{fontWeight:600,fontSize:"3em",textAlign:'center'}}>WHY ORGANIC ?</h1>
+                    <Col xs={{span:18,offset:3}} md={{span:12,offset:12}}>
                         <Row>
-                            <h1 style={{fontWeight:600,fontSize:"3em"}}>WHY ORGANIC ?</h1>
+                            
                             <Col xs={24} md={12} style={{marginBottom:"10px"}}>
                                 <Card style={{ width: 300 }}>
                                 <i className='fa fa-cubes fa-2x'></i>
@@ -128,7 +161,7 @@ function Home(props) {
             <div>
             <div className="partNyan-2">
                 <Row>
-                    <Col xs={24} md={{span:10,offset:2}}>
+                    <Col xs={{span:18,offset:3}} md={{span:10,offset:2}}>
                         <h1 style={{color:"red"}}>BEST FRUITS SINCE 1999</h1>
                         <h1 style={{fontWeight:600,fontSize:"3em"}}>OUR FARM</h1>
                         <h1 style={{fontSize:"3em"}}>WHO WE ARE</h1>
@@ -143,7 +176,7 @@ function Home(props) {
                             Since its foundation, Orange offers best organic fruits for local residents, fruit markets, and guests of our city. We are dedicated to improving your healthy food standards.
                             </TabPane>
                         </Tabs>
-                        <Button style={{marginTop:"10px"}} type="danger" size='large'>READ MORE</Button>
+                        <Button style={{marginTop:"10px",marginBottom:'10px'}} type="danger" size='large'>READ MORE</Button>
                     </Col>
                     <Col xs={24} md={{span:10,offset:1}}>
                         <img alt='farm-1' src={FarmOne} style={{height:'350px',width:"100%"}} />
@@ -184,7 +217,7 @@ function Home(props) {
             <div className='partNyan-5'>
                 <Row>
                     <form onSubmit={handleSubmit}>
-                        <Col xs={24} md={{span:4,offset:2}}>
+                        <Col xs={{span:18,offset:3}} md={{span:4,offset:2}}>
                             <h1 style={{fontWeight:600,fontSize:"3em"}} >STAY CONNECTED</h1>
                             <p>Subscribe to our newsletter</p>
                         </Col>
@@ -221,14 +254,25 @@ function Home(props) {
                         hoverable
                         cover={<img alt="example" src={post.image} style={{height:"200px"}} />}
                         >
+                        <Link to={`/blog/${post.id}`}>
                         <Meta title={post.title} description={post.body} />
+                        </Link>
                         </Card>
                     )
                 })}
                 </Slider>
                 </Col>
             </Row>
-            
+            </div>{/* End PartNyan 7  */}
+
+            <div className='partNyan-8' style={{marginTop:'20px'}}>
+                        <div className="promotionBanners">
+                            <img src={Pics1} alt="100 Percent Organic" />
+                            <img src={Pics2} alt="Fresh Vegan Food" />
+                            <img src={Pics3} alt="Locally Grown" />
+                            <img src={Pics4} alt="100 Percent Organic Product" />
+                            <img className='prato' src={Pics5} alt="Vegan Food" />
+                        </div>
             </div>
             </div>
         </div>
@@ -252,7 +296,7 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Home);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Home));
 // export default Home(
 //     withRouter,
 //     connect(mapStateToProps, mapDispatchToProps)

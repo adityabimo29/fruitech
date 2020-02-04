@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Navbar from "./Top";
-import Footer from "./Bottom";
 import { Row, Col, Card } from "antd";
 import "antd/dist/antd.css";
 import axios from "axios";
@@ -49,7 +47,6 @@ export default class OurTeam extends Component {
     const { userAPI_Jesky, userAPI_Pirman, userAPI_Aditya } = this.state;
     return (
       <div>
-        <Navbar />
         <Row>
           <Col className="OurTeamHeaderContainer">
             <p>OUR TEAM</p>
@@ -182,10 +179,10 @@ export default class OurTeam extends Component {
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9934.267469148017!2d-0.1193227!3d51.5028154!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x67bb55b5c4867f8c!2sLondon%20Eye%20Ticket%20Office!5e0!3m2!1sen!2sid!4v1580728303941!5m2!1sen!2sid"
               width="100%"
               height="450"
+              title='oke'
             ></iframe>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }

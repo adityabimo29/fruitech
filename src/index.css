@@ -45,15 +45,19 @@ body{
 .slide-1{
   text-align: center;
   height: 500px;
+  width: 100%;
   background-image:URL('./images/slider-1.jpg');
   overflow: hidden;
+  background-repeat: no-repeat;
 }
 
 .slide-2{
   text-align: center;
   height: 500px;
+  width: 100%;
   background-image:URL('./images/slider-2.jpg');
   overflow: hidden;
+  background-repeat: no-repeat;
 }
 
 .partNyan-1{
@@ -99,6 +103,12 @@ border-bottom: 1px solid grey !important;
     -ms-transform: translate(-50%, -50%);
     text-align: center;
   
+}
+
+@media (max-width:600px){
+  .prato{
+    display: none;
+  }
 }
 
 

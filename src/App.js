@@ -6,6 +6,7 @@ import Posts from './Pages/Posts';
 import DetailPost from './Pages/DetailPost';
 import Contact from './Pages/Contact';
 import Home from './Pages/Home';
+import Team from './Pages/OurTeam';
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +20,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Home />
+          </Route>
+          <Route  path='/team'>
+            <Team />
           </Route>
           <Route  path='/contacts'>
             <Contact />
