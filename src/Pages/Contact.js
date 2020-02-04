@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Input, Button, Row,Col } from 'antd';
 import {connect} from 'react-redux';
 import { addContact } from '../actions/contact.action';
+
 class Contact extends React.Component {
 
   state = {
