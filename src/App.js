@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import './App.css';
 import Top from './Pages/Top';
@@ -41,6 +42,19 @@ function App() {
         </Switch>
       <Bottom/>
     </Router>
+=======
+import React from "react";
+import "./App.css";
+import OurTeam from "./pages/OurTeam";
+import About from "./pages/About";
+
+function App() {
+  return (
+    <div className="App">
+      {/* <OurTeam /> */}
+      <About />
+    </div>
+>>>>>>> 133e117c8018256f13c10784e586657da5b990ad
   );
 }
 
