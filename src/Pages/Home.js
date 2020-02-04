@@ -1,20 +1,40 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { Carousel,Button,Row,Col,Card,Tabs } from 'antd';
+//import {withRouter} from 'react-router';
 import FarmOne from '../images/our-farm-1.jpg';
 import farmImageOne from '../images/farm-1.jpg';
 import farmImageTwo from '../images/farm-2.jpg';
 import farmImageThree from '../images/farm-3.jpg';
 import farmImageFour from '../images/farm-4.jpg';
-import { connect } from 'react-redux';
-import { fetchImages } from '../actions/home.action';
+import { connect,useDispatch } from 'react-redux';
+import { fetchImages, addSubscribe, fetchSubs } from '../actions/home.action';
 
 function Home(props) {
     const { TabPane } = Tabs;
-    useEffect(() => {
-        props.getImages();
+
+    const [subscribe,setSubscribe] = useState({
+        email:''
+    });
+
+    const handleChange = (e) =>{
+        let val = e.target.value;
+        setSubscribe({email:val});
         
-      },[]);
-      //console.log(props.myImages)
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        props.addSubs(subscribe);
+        alert('you have been successfully subscribed');
+        //window.location.reload();
+        setSubscribe({email:''});
+    }
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchImages())
+        
+      },[dispatch]);
     return (
         
         <div>
@@ -133,7 +153,7 @@ function Home(props) {
                     {props.myImages.map(image => {
                         return(
                             <Col xs={24} md={{span:8}} key={image.id} className='overlayku'>
-                                <img className='imageku' style={{height:'300px',width:"100%"}} alt='image' src={image.urls.full} />
+                                <img className='imageku' style={{height:'300px',width:"100%"}} alt={image.id} src={image.urls.full} />
                                 <div className='middleku'>
                                     <i style={{color:"red"}} className='fa fa-eye fa-3x'></i>
                                 </div>
@@ -145,9 +165,23 @@ function Home(props) {
             </div>{/* End PartNyan 3  */}
             <div className='partNyan-5'>
                 <Row>
-                    <Col></Col>
-                    <Col></Col>
-                    <Col></Col>
+                    <form onSubmit={handleSubmit}>
+                        <Col xs={24} md={{span:4,offset:2}}>
+                            <h1 style={{fontWeight:600,fontSize:"3em"}} >STAY CONNECTED</h1>
+                            <p>Subscribe to our newsletter</p>
+                        </Col>
+                        <Col xs={24} md={{span:12}}>
+                            <input style={{border:'none',borderBottom:"2px solid black",backgroundColor:'transparent',marginTop:'10%',marginLeft:'10%',width:"80%",height:"50px"}} placeholder="Your Email" value={subscribe.email} onChange={handleChange} />
+                        </Col>
+                        <Col xs={24} md={{span:5}}>
+                            <Button htmlType='submit' type="danger" size='large' block style={{marginTop:"25%"}}>SUBSCRIBE</Button>
+                        </Col>
+                    </form>
+                </Row>
+            </div>{/* End PartNyan 5  */}
+            <div className='partNyan-6'>
+                <Row>
+                    <h1 style={{textAlign:'center',fontWeight:600,fontSize:'3em'}}>TESTIMONIALS</h1>
                 </Row>
             </div>
             </div>
@@ -157,14 +191,21 @@ function Home(props) {
 
 const mapStateToProps = state => {
     return {
-        myImages: state.home.images
+        myImages: state.home.images,
+        mySubs:state.home.subs
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        getImages:()=> dispatch(fetchImages())
+        getImages:()=> dispatch(fetchImages()),
+        getSubs:()=>dispatch(fetchSubs()),
+        addSubs:(email)=> dispatch(addSubscribe(email))
     }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
+// export default Home(
+//     withRouter,
+//     connect(mapStateToProps, mapDispatchToProps)
+//   )(Home);

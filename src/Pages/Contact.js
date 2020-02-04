@@ -1,7 +1,39 @@
 import React from 'react';
 import { Form, Input, Button, Row,Col } from 'antd';
+import {connect} from 'react-redux';
+import { addContact } from '../actions/contact.action';
 class Contact extends React.Component {
 
+  state = {
+          name:'',
+          email:'',
+          subject:'',
+          message:''
+  }
+
+  handleChange = e => {
+      let name = e.target.name;
+      let val = e.target.value;
+      if(name === 'name'){
+        this.setState({name:val});
+      }else if(name === 'email'){
+        this.setState({email:val});
+      }else if(name === 'subject'){
+        this.setState({subject:val});
+      }else if(name === 'message'){
+        this.setState({message:val});
+      }
+      
+  }
+
+  handleSubmit = e => {
+      e.preventDefault();
+      const {name,email,subject,message} = this.state;
+      this.props.sendContact({name: name,email:email,subject:subject,message:message});
+
+  }
+
+  
     
   render() {
     const { TextArea } = Input;
@@ -21,21 +53,21 @@ class Contact extends React.Component {
                 <h2 style={{fontSize:"4em"}}>Contacts</h2>
                 <p><i className='fa fa-map-marker'></i> 523 Sylvan Ave, 5th Floor Mountain View, CA 94041 USA</p>
                 <p><i className='fa fa-phone'></i> +62 (844) 123 456 78</p>
-                <Form layout="vertical">
+                <Form layout="vertical" onSubmit={this.handleSubmit}>
                     <Form.Item  >
-                        <Input placeholder="Your Name" />
+                        <Input name='name' onChange={this.handleChange} placeholder="Your Name" />
                     </Form.Item>
                     <Form.Item>
-                        <Input placeholder="Your Email" />
+                        <Input name='email' onChange={this.handleChange} placeholder="Your Email" />
                     </Form.Item>
                     <Form.Item>
-                        <Input placeholder="Subject" />
+                        <Input name='subject' onChange={this.handleChange} placeholder="Subject" />
                     </Form.Item>
                     <Form.Item>
-                        <TextArea rows={4} placeholder="Your Message"></TextArea>
+                        <TextArea name='message' onChange={this.handleChange} rows={4} placeholder="Your Message"></TextArea>
                     </Form.Item>
                     <Form.Item >
-                        <Button size='large' type="danger" >SEND</Button>
+                        <Button htmlType='submit' size='large' type="danger" >SEND</Button>
                     </Form.Item>
                 </Form>
             </Col>
@@ -45,4 +77,10 @@ class Contact extends React.Component {
   }
 }
 
-export default Contact
+const mapDispatchToProps = dispatch =>{
+    return{
+        sendContact:(data) => dispatch(addContact(data))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(Contact);

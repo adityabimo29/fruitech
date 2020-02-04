@@ -1,6 +1,7 @@
 
 const initialState = {
     images:[],
+    subs:[]
 }
 
 const reducer = (state = initialState , action) => {
@@ -8,6 +9,10 @@ const reducer = (state = initialState , action) => {
         case 'GET_IMAGES':
             return{
                 images:action.payload
+            }
+        case 'GET_SUBS':
+            return{
+                subs:action.payload
             }
     
         default:
