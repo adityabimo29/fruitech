@@ -6,6 +6,7 @@ import farmImageOne from '../images/farm-1.jpg';
 import farmImageTwo from '../images/farm-2.jpg';
 import farmImageThree from '../images/farm-3.jpg';
 import farmImageFour from '../images/farm-4.jpg';
+import avates from '../images/avatar.jpg'
 import { connect,useDispatch } from 'react-redux';
 import { fetchImages, addSubscribe, fetchSubs } from '../actions/home.action';
 
@@ -182,7 +183,16 @@ function Home(props) {
             <div className='partNyan-6'>
                 <Row>
                     <h1 style={{textAlign:'center',fontWeight:600,fontSize:'3em'}}>TESTIMONIALS</h1>
+                    <Col xs={24} md={{span:18,offset:3}}>
+                    <p style={{textAlign:'center'}}>I Just can't say enough good things about your farms and your products you provide. Since i first bought your apple at local store. I'm your regular customer . Thank you for everyhting!</p>
+                    <img style={{margin:'0 auto',display:'block',borderRadius:'50%'}} alt='avates' src={avates} />
+                    <p style={{textAlign:'center'}}>James Smith</p>
+                    <p style={{color:'red',textAlign:'center'}}>Client</p>
+                    </Col>
                 </Row>
+            </div>{/* End PartNyan 6  */}
+            <div className='partNyan-7'>
+                
             </div>
             </div>
         </div>

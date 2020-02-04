@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment ,Suspense ,lazy } from 'react'
 import { connect } from 'react-redux'
 import { fetchData } from '../actions/posts.action';
 import { Button, Row,Col } from 'antd';
 import logoPost from '../images/post.jpg';
+import {Link} from 'react-router-dom';
 
 class Posts extends Component {
 
@@ -15,20 +16,20 @@ class Posts extends Component {
        console.log(data);
         return (
             <div>
-                <Row >
+                <Row style={{marginTop:'3em'}}>
                     {data.map(item => {
                        return (
                         <Fragment key={item.id}>
                         <Col xs={24} md={{span:12,offset:6}} >
                             <h1 style={{textAlign:"center"}}>{item.title}</h1>
-                            <img style={{width:"100%"}} alt='' src={logoPost} />
+                            <img style={{width:"100%"}} alt='' src={item.image} />
                             <p>{item.body}</p>
                             <Row>
                             <Col xs={24} md={4}>
                                 <Button type="dashed" size='large'><i className='fa fa-comment'></i></Button>
                             </Col>
                             <Col xs={24} md={{span:4,offset:16}}>
-                                <Button type="danger" size='large'>Read More</Button>
+                                <Link to={`/blog/${item.id}`}><Button type="danger" size='large'>Read More</Button></Link>
                             </Col>
                             </Row>
                         </Col>

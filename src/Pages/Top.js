@@ -36,7 +36,7 @@ export default class Top extends React.Component {
                     <Menu
                         theme="light"
                         mode="horizontal"
-                        defaultSelectedKeys={['1']}
+                        // defaultSelectedKeys={['1']}
                         style={{ lineHeight: '64px' }}
                     >
                         <Menu.Item key="1"><Link to='/'>Home</Link></Menu.Item>
