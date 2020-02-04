@@ -8,7 +8,7 @@ import Contact from './Pages/Contact';
 import Home from './Pages/Home';
 import Team from './Pages/OurTeam';
 import Gallery from './Pages/Gallery';
-
+import About from './Pages/About';
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,6 +22,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Home />
+          </Route>
+          <Route  path='/about'>
+            <About />
           </Route>
           <Route  path='/team'>
             <Team />

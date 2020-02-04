@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { Row, Col, Tabs, Button, Carousel, Card } from "antd";
-import Navbar from "./Top";
 import Pic1 from "../images/our-farm-1.jpg";
 import Pic2 from "../images/our-farm-2.jpg";
 import Pic3 from "../images/our-farm-3.jpg";
 import Pic4 from "../images/our-farm-4.jpg";
 import axios from "axios";
-import Footer from "./Bottom";
 import Promo1 from "../images/clients-1-120x114.png";
 import Promo2 from "../images/clients-2-105x118.png";
 import Promo3 from "../images/clients-3-111x98.png";
@@ -57,7 +55,6 @@ export default class About extends Component {
     const { userAPI_Jesky, userAPI_Pirman, userAPI_Aditya } = this.state;
     return (
       <div>
-        <Navbar />
         <Row>
           <Col className="AboutContainer">
             <p>ABOUT US</p>
@@ -69,12 +66,13 @@ export default class About extends Component {
           </Col>
         </Row>
         <Row>
-          <Col xs={{ span: 24 }} lg={{ span: 12 }} className="AboutFirstTab">
-            <h1 className="AboutCol1 AboutFirstTab">
+        <h1 className="AboutCol1 AboutFirstTab">
               NEW GENERATION
-              <br />
+          
               OF FARMERS
-            </h1>
+          </h1>
+          <Col xs={{ span: 24 }} lg={{ span: 12 }} className="AboutFirstTab">
+            
             <Col className="TabsContainer">
               <Tabs defaultActiveKey="1" onChange={callback}>
                 <TabPane tab="ABOUT" key="1" className="AboutTabs">
@@ -369,7 +367,7 @@ export default class About extends Component {
           width="100%"
           height="450"
         ></iframe>
-        <Footer />
+       
       </div>
     );
   }
