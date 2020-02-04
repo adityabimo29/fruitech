@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Layout, Menu, Row,Drawer } from 'antd';
+import { Layout, Menu, Row, Drawer, Carousel,Icon } from 'antd';
 import {
     Link,
   } from "react-router-dom";
@@ -49,15 +49,32 @@ export default class Top extends React.Component {
                     <i style={{marginTop:"15px",}} className="fa fa-bars fa-2x" onClick={this.showDrawer} aria-hidden="true"></i>
                     
                     <Drawer
-                    title="Basic Drawer"
+                    title="OUR CONTACT"
                     placement={this.state.placement}
                     closable={false}
                     onClose={this.onClose}
                     visible={this.state.visible}
                     >
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
+                        <Carousel autoplay>
+                            <div className='drawer-1'>
+                            </div>
+                            <div className='drawer-2'>
+                            </div>
+                            <div className='drawer-3'>
+                            </div>
+                        </Carousel>
+                        <div className='drawMenu'>
+                            <p>523 Sylvan Ave, 5th Floor</p>
+                            <p>Mountain View, CA 94041 USA</p>
+                            <hr/>
+                            <p>+1 (844) 123 456 78</p>
+                        </div>
+                        <div className='iconDraw'>
+                        <Icon type="facebook" />
+                        <Icon type="twitter" />
+                        <Icon type="instagram" />
+                        <Icon type="behance" />
+                        </div>
                     </Drawer>
                     </Row>
                 </Header>
