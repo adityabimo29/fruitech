@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {getData} from '../actions/detail.action';
 import {withRouter} from 'react-router-dom';
-import logoPost from '../images/post.jpg';
+//import logoPost from '../images/post.jpg';
 import { Row,Col } from 'antd';
 
 class DetailPost extends Component {

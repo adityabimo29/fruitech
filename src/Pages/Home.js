@@ -8,7 +8,10 @@ import farmImageThree from '../images/farm-3.jpg';
 import farmImageFour from '../images/farm-4.jpg';
 import avates from '../images/avatar.jpg'
 import { connect,useDispatch } from 'react-redux';
-import { fetchImages, addSubscribe, fetchSubs } from '../actions/home.action';
+import { fetchImages, addSubscribe, fetchSubs, fetchPosts } from '../actions/home.action';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 function Home(props) {
     const { TabPane } = Tabs;
@@ -31,11 +34,25 @@ function Home(props) {
         setSubscribe({email:''});
     }
     const dispatch = useDispatch()
-
+    const dispatch2 = useDispatch()
     useEffect(() => {
-        dispatch(fetchImages())
+        dispatch(fetchPosts());
+        dispatch2(fetchImages());
         
       },[dispatch]);
+
+      //console.log(props.myImages)
+
+      const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      };
+
+      const { Meta } = Card;
+      
     return (
         
         <div>
@@ -192,7 +209,26 @@ function Home(props) {
                 </Row>
             </div>{/* End PartNyan 6  */}
             <div className='partNyan-7'>
-                
+            <Row>
+                <Col xs={24} md={{span:18,offset:3}}>
+                <h1 style={{fontSize:'3em',fontWeight:600,textAlign:'center'}}>OUR BLOG</h1>
+                <Slider {...settings}>
+                {props.posty.map(post => {
+                    return(
+                        <Card
+                        style={{padding:"20px",width:240}}
+                        key={post.id}
+                        hoverable
+                        cover={<img alt="example" src={post.image} style={{height:"200px"}} />}
+                        >
+                        <Meta title={post.title} description={post.body} />
+                        </Card>
+                    )
+                })}
+                </Slider>
+                </Col>
+            </Row>
+            
             </div>
             </div>
         </div>
@@ -202,7 +238,8 @@ function Home(props) {
 const mapStateToProps = state => {
     return {
         myImages: state.home.images,
-        mySubs:state.home.subs
+        mySubs:state.home.subs,
+        posty:state.home.posts
     }
 }
 
@@ -210,7 +247,8 @@ const mapDispatchToProps = dispatch => {
     return {
         getImages:()=> dispatch(fetchImages()),
         getSubs:()=>dispatch(fetchSubs()),
-        addSubs:(email)=> dispatch(addSubscribe(email))
+        addSubs:(email)=> dispatch(addSubscribe(email)),
+        getPosts:()=> dispatch(fetchPosts())
     }
 }
 

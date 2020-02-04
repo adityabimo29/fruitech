@@ -9,7 +9,7 @@ export const showData = data => {
 }
 
 export const getData = (id) => dispatch => {
-    return axios.get(`http://5e313f3c576f9d0014d64535.mockapi.io/rac/posts/${id}`).then(res=>{
+    return axios.get(`https://5e313f3c576f9d0014d64535.mockapi.io/rac/posts/${id}`).then(res=>{
         dispatch(showData(res.data))
     })
 }
