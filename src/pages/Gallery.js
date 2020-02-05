@@ -23,13 +23,19 @@ function Gallery(props) {
         <Row>
         <Col xs={24} md={{span:8}}>
             <Tabs defaultActiveKey="organics">
-              <TabPane tab="ORGANICS" key="organics">
-              {props.myImages.map(image => {
-                        return(
-                <img src={image.urls.full} alt="image organics" style={{height:'250px',width:"100%"}}/>
-                )
-              })}
-              </TabPane>
+              <Row>
+                <Col span={24} md={{span:8}}>
+                <TabPane tab="ORGANICS" key="organics">
+                {props.myImages.map(image => {
+                          return(
+                  <img src={image.urls.full} alt="image organics" style={{height:'250px',width:"100%"}}/>
+                  )
+                })}
+                </TabPane>
+                </Col>
+                
+              </Row>
+              
               <TabPane tab="FRUITS" key="fruits">
               {props.myImages.map(image => {
                         return(
